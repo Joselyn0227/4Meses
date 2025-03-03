@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regalo 4 Meses</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+        
+        body {
+            margin: 0;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'Patrick Hand', cursive;
+            color: white;
+            text-align: center;
+        }
+        .container {
+            position: relative;
+            width: 80%;
+            max-width: 800px;
+            text-align: center;
+        }
+        img {
+            width: 17%;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        img.active {
+            opacity: 1;
+        }
+        .carta {
+            margin-top: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
+            width: 80%;
+            max-width: 800px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <audio id="musica" loop>
+        <source src="COMPARTIR.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+    
+    <button onclick="document.getElementById('musica').play()">🎵 Reproducir música</button>
+    <button onclick="document.getElementById('musica').pause()">⏸️ Pausar música</button>
+    
+    <div class="container">
+        <img src="1.jpeg" class="active" alt="Imagen 1">
+        <img src="2.jpg" alt="Imagen 2">
+        <img src="3.jpg" alt="Imagen 3">
+        <img src="4.jpeg" alt="Imagen 4">
+    </div>
+    
+    <div class="carta">
+        <p>Mi amor,</p>
+        <p>Quería hacerte algo especial y diferente, ya que como sabes, estoy cortita de dinero, pero me sobra la creatividad y aunque no es que me sobre tiempo, pero igual saqué un ratito para preparar mi regalito. ❤️FELICES 4 MESES AMADO MÍO❤️
+            Espero que sean muchos más meses a tu lado y que pronto, como tanto deseamos, llegue el momento de casarnos 🥹💍</p>
+        <p>Con amor, tu novia preciosa, claro que sí 😏 💖</p>
+    </div>
+
+    <script>
+        const images = document.querySelectorAll(".container img");
+        let index = 0;
+
+        function changeImage() {
+            images[index].classList.remove("active");
+            index = (index + 1) % images.length;
+            images[index].classList.add("active");
+        }
+
+        setInterval(changeImage, 3000);
+    </script>
+</body>
+</html>
